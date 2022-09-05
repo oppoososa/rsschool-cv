@@ -16,6 +16,7 @@
 * CSS
 * Git
 * JavaScript
+* Wordpress
 ### <span style= "color: #FFB273"> Code Example <span>
 ```
 var number=function(array){
