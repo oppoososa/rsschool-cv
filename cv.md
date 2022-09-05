@@ -1,4 +1,6 @@
 ### [rsschool-cv](https://oppoososa.github.io/rsschool-cv/cv  "RSschool-Kabanov Ivan")
+
+![avatar](https://i.pinimg.com/originals/b9/57/05/b95705525bb0802667a59d2e068caee8.png)
 # <span style= "color: 009999">Kabanov Ivan </span>
 * Location: Russia, Vologda
 * Email: oppoososa@gmail.com
