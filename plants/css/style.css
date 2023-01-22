@@ -1,0 +1,428 @@
+/* inter-regular - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/inter-v12-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/inter-v12-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* inter-700 - latin */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/inter-v12-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/inter-v12-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* inika-regular - latin */
+@font-face {
+  font-family: "Inika";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("../fonts/inika-v21-latin-regular.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/inika-v21-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* inika-700 - latin */
+@font-face {
+  font-family: "Inika";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("../fonts/inika-v21-latin-700.woff2") format("woff2"),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url("../fonts/inika-v21-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Inika";
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: normal;
+  color: #000000;
+}
+.wrapper {
+  max-width: 1220px;
+  margin: 0 auto;
+}
+.img {
+  max-width: 100%;
+  height: auto;
+}
+.wrapper_big {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.color_wrapper_g {
+  background-color: #edf2ec;
+}
+.color_wrapper_W {
+  background-color: #ffffff;
+}
+.border_header {
+  box-shadow: 0px -4px 0px 0px rgba(138, 137, 137, 0.5);
+  background-color: #edf2ec;
+}
+.header {
+  background-color: #edf2ec;
+}
+.header_logo {
+  line-height: 50px;
+}
+
+.header_logo-link {
+  text-decoration: none;
+  font-family: "Inika";
+  font-size: 16px;
+  color: #000000;
+}
+.header_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+.header_list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+}
+.header_item {
+  margin-right: 46px;
+  list-style-type: none;
+  line-height: 50px;
+}
+.header_item:last-child {
+  margin-right: 0;
+}
+.header_link {
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #010201;
+}
+.header_link:hover,
+.header_link:focus,
+.header_link:active {
+  color: #e06733;
+  font-weight: 700;
+}
+.welcome {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.welcome_logo {
+  width: 448px;
+  height: 407px;
+  margin-top: 62px;
+}
+.welcome_text {
+  display: flex;
+  flex-direction: column;
+  width: 549px;
+  height: 340px;
+  margin-top: 98px;
+}
+.about {
+  height: 479px;
+  margin-top: 93px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.about_text {
+  display: flex;
+  flex-direction: column;
+  width: 605px;
+  height: 350px;
+}
+.h1 {
+  margin-top: 0px;
+  font-family: "Inter";
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 50px;
+  color: #717171;
+}
+.h1_green {
+  color: #499a18;
+}
+.h2_about {
+  margin-top: 68px;
+  margin-bottom: 0px;
+  font-family: "Inika";
+  font-size: 40px;
+  font-weight: 400;
+  color: #e06733;
+  width: 463px;
+  height: 102px;
+}
+.p_header {
+  width: 525.44px;
+  height: 105px;
+  font-family: "Inter";
+  font-size: 20px;
+  color: #636060;
+}
+.p_about {
+  margin-top: 40px;
+  width: 605px;
+  height: 208px;
+  font-family: "Inter";
+  font-size: 20px;
+  color: #636060;
+}
+.learn_more {
+  width: 158px;
+  height: 44px;
+  border-color: #e06733;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #edf2ec;
+}
+.service {
+  display: flex;
+  flex-direction: column;
+  height: 1300px;
+}
+.service_content {
+  display: flex;
+  justify-content: space-between;
+}
+.p_service {
+  margin-top: 40px;
+  margin-bottom: 0px;
+  font-family: "Inika";
+  font-size: 40px;
+  font-weight: 400;
+  color: #499a18;
+  width: 306px;
+  height: 94px;
+}
+.service_btns {
+  margin-right: 202px;
+  display: flex;
+  height: 50px;
+  width: 559px;
+}
+.btns {
+  width: 161px;
+  margin-top: 69px;
+  margin-left: 38px;
+  height: 50px;
+  border-color: #e06733;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  font-family: "Inika";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #e06733;
+  background-color: #edf2ec;
+}
+.btns:first-child {
+  margin-left: 0px;
+}
+.services {
+  margin-top: 90px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 117px;
+}
+
+.services_item {
+  width: 333px;
+  height: 450px;
+  margin-bottom: 55px;
+  border-width: 1px;
+  border-color: #e3e1d5;
+  border-style: solid;
+  border-radius: 20px 20px 20px 20px;
+}
+.card_services {
+  max-height: 350px;
+  max-width: 329px;
+  display: block;
+}
+.card_title {
+  margin-bottom: 0px;
+  margin-top: 10px;
+  text-align: center;
+  color: #e06733;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+}
+.card_desc {
+  margin-top: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #717171;
+  text-align: center;
+}
+.prices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 405px;
+  margin-top: 41px;
+}
+.prices_form {
+  width: 332px;
+  height: 391;
+}
+.prices_header {
+  margin-top: 0px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+}
+.ul_prices {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e3e1d5;
+  border-radius: 20px;
+  width: 332px;
+  height: 282px;
+  list-style-type: none;
+}
+.li_prices {
+  width: 250px;
+  height: 50px;
+  background: #edf2ec;
+  border-radius: 20px;
+  margin-top: 32px;
+}
+.price_link {
+  position: absolute;
+  margin-left: 40px;
+  padding-top: 16px;
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #010201;
+}
+.contact_us {
+  display: flex;
+  flex-direction: column;
+  width: 452px;
+  height: 191px;
+}
+.p_contact {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: right;
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 50px;
+  color: #000000;
+}
+.contact_wrapper {
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: 0px;
+}
+.contact_us_btn {
+  width: 158px;
+  height: 44px;
+  border-color: #e06733;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #edf2ec;
+}
+
+.contact_woman {
+  margin-bottom: auto;
+  margin-top: 53px;
+
+  display: block;
+  width: 400px;
+  height: 496px;
+}
+.p_contact_wooman {
+  font-family: "Inika";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: 113px;
+}
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 550px;
+  color: #499a18;
+}
+.city {
+  border-radius: 0px;
+  margin-bottom: auto;
+  margin-top: 148px;
+  height: 50px;
+  width: 450px;
+  background: #d6e7d2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.p_city {
+  margin-top: auto;
+  margin-bottom: 5px;
+  margin-left: 20px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.05em;
+  text-align: left;
+  color: #717171;
+}
+@media (max-width: 768px) {
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .services_item {
+    width: 280px;
+    height: 350px;
+    margin-bottom: 100px;
+    border-width: 1px;
+    border-color: #e3e1d5;
+    border-style: solid;
+    border-radius: 20px 20px 20px 20px;
+  }
+  .contact_us {
+    margin: auto;
+    display: block;
+  }
+}
