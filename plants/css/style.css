@@ -407,7 +407,25 @@ body {
   text-align: left;
   color: #717171;
 }
+.contact_us {
+  margin: auto;
+  display: block;
+}
 @media (max-width: 768px) {
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .house_plant {
+  }
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .wrapper_big {
+    display: flex;
+    flex-wrap: wrap;
+  }
   .services {
     display: flex;
     flex-wrap: wrap;
@@ -420,9 +438,5 @@ body {
     border-color: #e3e1d5;
     border-style: solid;
     border-radius: 20px 20px 20px 20px;
-  }
-  .contact_us {
-    margin: auto;
-    display: block;
   }
 }
