@@ -132,7 +132,7 @@ body {
   margin-top: 98px;
 }
 .about {
-  height: 479px;
+  min-height:479px;
   margin-top: 93px;
   display: flex;
   flex-wrap: wrap;
@@ -194,13 +194,25 @@ body {
   background-color: #edf2ec;
 }
 .service {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 1300px;
+  flex-wrap: wrap;
+}
+.services {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+  flex-wrap: wrap;
 }
 .service_content {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+  padding-bottom:40px;
 }
 .p_service {
   margin-top: 40px;
@@ -213,10 +225,14 @@ body {
   height: 94px;
 }
 .service_btns {
-  margin-right: 202px;
   display: flex;
-  height: 50px;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: 202px;
+  height: auto;
   width: 559px;
+
 }
 .btns {
   width: 161px;
@@ -237,17 +253,12 @@ body {
 .btns:first-child {
   margin-left: 0px;
 }
-.services {
-  margin-top: 90px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 117px;
-}
 
 .services_item {
   width: 333px;
   height: 450px;
   margin-bottom: 55px;
+  margin-right:55px;
   border-width: 1px;
   border-color: #e3e1d5;
   border-style: solid;
@@ -256,7 +267,7 @@ body {
 .card_services {
   max-height: 350px;
   max-width: 329px;
-  display: block;
+  
 }
 .card_title {
   margin-bottom: 0px;
@@ -329,6 +340,7 @@ body {
   flex-direction: column;
   width: 452px;
   height: 191px;
+  
 }
 .p_contact {
   margin-top: 0px;
@@ -344,8 +356,9 @@ body {
 }
 .contact_wrapper {
   margin-top: auto;
-  margin-left: auto;
+  margin-left: 290px;
   margin-right: 0px;
+  padding-top: 40px;
 }
 .contact_us_btn {
   width: 158px;
@@ -410,33 +423,6 @@ body {
 .contact_us {
   margin: auto;
   display: block;
+  margin-right: 0px;
 }
-@media (max-width: 768px) {
-  .about {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .house_plant {
-  }
-  .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .wrapper_big {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .services {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .services_item {
-    width: 280px;
-    height: 350px;
-    margin-bottom: 100px;
-    border-width: 1px;
-    border-color: #e3e1d5;
-    border-style: solid;
-    border-radius: 20px 20px 20px 20px;
-  }
-}
+
