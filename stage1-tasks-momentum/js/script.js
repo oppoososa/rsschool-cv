@@ -10,13 +10,18 @@ const temperature = document.querySelector(".temperature");
 const weatherDescription = document.querySelector(".weather-description");
 const CityIn = document.querySelector(".city");
 const quote = document.querySelector(".quote");
+const author = document.querySelector (".author");
+const changeQuote = document.querySelector (".change-quote");
 let timeOfDay = "";
 let bgNumGl = RandomNum();
+
 
 window.addEventListener("beforeunload", setLocalStorage);
 window.addEventListener("load", getLocalStorage);
 slideNext.addEventListener('click', getSlideNext);
 slidePrev.addEventListener('click', getSlidePrev);
+changeQuote.addEventListener('click', getQuotes);
+
 CityIn.addEventListener ('change', getWeather);
 showTime();
 changeBg();
@@ -50,7 +55,8 @@ async function getQuotes() {
   const quotes = 'js/data.json';
   const res = await fetch(quotes);
   const data = await res.json(); 
-  quote.textContent = data[0].text; 
+  quote.textContent = data[RandomNum()].text; 
+  author.textContent = data[RandomNum()].author;
 }
 
 
@@ -94,6 +100,6 @@ function RandomNum() {
 function changeBg() {
   let bgNum_R = String(bgNumGl);
   let bgNum = bgNum_R.padStart(2,0);
- 
   ground.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg')`;
+  getQuotes();
 }
