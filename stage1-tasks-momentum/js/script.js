@@ -18,6 +18,7 @@ let timeOfDay = "";
 let bgNumGl = RandomNum();
 let isPlay = false;
 
+
 window.addEventListener("beforeunload", setLocalStorage);
 window.addEventListener("load", getLocalStorage);
 slideNext.addEventListener('click', getSlideNext);
@@ -62,11 +63,12 @@ async function getWeather() {
   weatherDescription.textContent = data.weather[0].description;
 }
 async function getQuotes() {  
+  let quotNoSplit = RandomNum()
   const quotes = 'js/data.json';
   const res = await fetch(quotes);
   const data = await res.json(); 
-  quote.textContent = data[RandomNum()].text; 
-  author.textContent = data[RandomNum()].author;
+  quote.textContent = data[quotNoSplit].text; 
+  author.textContent = data[quotNoSplit].author;
 }
 
 
