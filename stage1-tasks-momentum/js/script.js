@@ -12,20 +12,30 @@ const CityIn = document.querySelector(".city");
 const quote = document.querySelector(".quote");
 const author = document.querySelector (".author");
 const changeQuote = document.querySelector (".change-quote");
+const playBtn = document.querySelector(".play");
+const audio = new Audio();
 let timeOfDay = "";
 let bgNumGl = RandomNum();
-
+let isPlay = false;
 
 window.addEventListener("beforeunload", setLocalStorage);
 window.addEventListener("load", getLocalStorage);
 slideNext.addEventListener('click', getSlideNext);
 slidePrev.addEventListener('click', getSlidePrev);
 changeQuote.addEventListener('click', getQuotes);
-
+playBtn.addEventListener('click', playAudio);
 CityIn.addEventListener ('change', getWeather);
 showTime();
 changeBg();
 getQuotes();
+
+function playAudio() {
+  audio.src = 'https://7oom.ru/audio/naturesounds/07%20Birds%20(7oom.ru).mp3';
+  audio.currentTime = 0;
+  if (!isPlay ){audio.play(); isPlay=true;} else {audio.pause(); isPlay=false;};
+  playBtn.classList.toggle('pause');
+}
+
 
 function showTime() {
   getTimeOfDay();
