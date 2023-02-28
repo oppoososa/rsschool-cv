@@ -31,7 +31,7 @@ changeBg();
 getQuotes();
 
 function playAudio() {
-  audio.src = 'https://7oom.ru/audio/naturesounds/07%20Birds%20(7oom.ru).mp3';
+  audio.src = playList[0].src;
   audio.currentTime = 0;
   if (!isPlay ){audio.play(); isPlay=true;} else {audio.pause(); isPlay=false;};
   playBtn.classList.toggle('pause');
