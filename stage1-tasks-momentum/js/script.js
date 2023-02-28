@@ -1,3 +1,4 @@
+import playList from './playList.js';
 const time = document.querySelector(".timer");
 const greet = document.querySelector(".greeting");
 const date = document.querySelector(".date");
@@ -18,7 +19,6 @@ let timeOfDay = "";
 let bgNumGl = RandomNum();
 let isPlay = false;
 
-
 window.addEventListener("beforeunload", setLocalStorage);
 window.addEventListener("load", getLocalStorage);
 slideNext.addEventListener('click', getSlideNext);
@@ -26,12 +26,13 @@ slidePrev.addEventListener('click', getSlidePrev);
 changeQuote.addEventListener('click', getQuotes);
 playBtn.addEventListener('click', playAudio);
 CityIn.addEventListener ('change', getWeather);
+getWeather();
 showTime();
 changeBg();
 getQuotes();
 
 function playAudio() {
-  audio.src = playList[0].src;
+  audio.src = playList[1].src;
   audio.currentTime = 0;
   if (!isPlay ){audio.play(); isPlay=true;} else {audio.pause(); isPlay=false;};
   playBtn.classList.toggle('pause');
@@ -54,13 +55,21 @@ function getSlidePrev() {
   if(bgNumGl>1){bgNumGl-=1}else if(bgNumGl==1){bgNumGl=20};
   changeBg();
 }
-async function getWeather() {  
+async function getWeather() { if (CityIn.value==false) {
+ CityIn.value = `Минск`;
+const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CityIn.value}&lang=ru&appid=c3c49ce84e899bde6e8a8245434614a3&units=metric`);
+const data = await res.json(); 
+weatherIcon.className = 'weather-icon owf';
+weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+temperature.textContent = `${data.main.temp}°C`;
+weatherDescription.textContent = data.weather[0].description;} 
+else {
   const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CityIn.value}&lang=ru&appid=c3c49ce84e899bde6e8a8245434614a3&units=metric`);
   const data = await res.json(); 
   weatherIcon.className = 'weather-icon owf';
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
   temperature.textContent = `${data.main.temp}°C`;
-  weatherDescription.textContent = data.weather[0].description;
+  weatherDescription.textContent = data.weather[0].description;}
 }
 async function getQuotes() {  
   let quotNoSplit = RandomNum()
@@ -115,3 +124,4 @@ function changeBg() {
   ground.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg')`;
   getQuotes();
 }
+
