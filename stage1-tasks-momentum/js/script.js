@@ -1,4 +1,4 @@
-import playList from './playList.js';
+import playList from "./playList.js";
 const time = document.querySelector(".timer");
 const greet = document.querySelector(".greeting");
 const date = document.querySelector(".date");
@@ -11,33 +11,59 @@ const temperature = document.querySelector(".temperature");
 const weatherDescription = document.querySelector(".weather-description");
 const CityIn = document.querySelector(".city");
 const quote = document.querySelector(".quote");
-const author = document.querySelector (".author");
-const changeQuote = document.querySelector (".change-quote");
+const author = document.querySelector(".author");
+const changeQuote = document.querySelector(".change-quote");
 const playBtn = document.querySelector(".play");
+const nextPlayBtn = document.querySelector(".play-next");
 const audio = new Audio();
+const playListElem = document.querySelector(".play-list");
+let playNum = 0;
 let timeOfDay = "";
 let bgNumGl = RandomNum();
 let isPlay = false;
 
 window.addEventListener("beforeunload", setLocalStorage);
 window.addEventListener("load", getLocalStorage);
-slideNext.addEventListener('click', getSlideNext);
-slidePrev.addEventListener('click', getSlidePrev);
-changeQuote.addEventListener('click', getQuotes);
-playBtn.addEventListener('click', playAudio);
-CityIn.addEventListener ('change', getWeather);
+slideNext.addEventListener("click", getSlideNext);
+slidePrev.addEventListener("click", getSlidePrev);
+changeQuote.addEventListener("click", getQuotes);
+playBtn.addEventListener("click", playAudio);
+nextPlayBtn.addEventListener("click", nextPlay);
+CityIn.addEventListener("change", getWeather);
 getWeather();
 showTime();
 changeBg();
 getQuotes();
+loadList();
 
-function playAudio() {
-  audio.src = playList[1].src;
-  audio.currentTime = 0;
-  if (!isPlay ){audio.play(); isPlay=true;} else {audio.pause(); isPlay=false;};
-  playBtn.classList.toggle('pause');
+function nextPlay() {
+  playNum = playNum + 1;
+  isPlay = false;
+  playAudio();
 }
-
+function loadList() {
+  for (let i = 0; i < playList.length; i++) {
+    const li = document.createElement("li");
+    li.className = "play-item";
+    playListElem.append(li);
+    li.textContent = playList[i].title;
+  }
+}
+function playAudio() {
+  audio.src = playList[playNum].src;
+  audio.currentTime = 0;
+  if (isPlay == false) {
+    playBtn.classList.remove("play");
+    playBtn.classList.add("pause");
+    audio.play();
+    isPlay = true;
+  } else {
+    playBtn.classList.remove("pause");
+    playBtn.classList.add("play");
+    audio.pause();
+    isPlay = false;
+  }
+}
 
 function showTime() {
   getTimeOfDay();
@@ -48,38 +74,51 @@ function showTime() {
   setTimeout(showTime, 1000);
 }
 function getSlideNext() {
-  if(bgNumGl<20){bgNumGl+=1}else if(bgNumGl==20){bgNumGl=1};
+  if (bgNumGl < 20) {
+    bgNumGl += 1;
+  } else if (bgNumGl == 20) {
+    bgNumGl = 1;
+  }
   changeBg();
 }
 function getSlidePrev() {
-  if(bgNumGl>1){bgNumGl-=1}else if(bgNumGl==1){bgNumGl=20};
+  if (bgNumGl > 1) {
+    bgNumGl -= 1;
+  } else if (bgNumGl == 1) {
+    bgNumGl = 20;
+  }
   changeBg();
 }
-async function getWeather() { if (CityIn.value==false) {
- CityIn.value = `Минск`;
-const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CityIn.value}&lang=ru&appid=c3c49ce84e899bde6e8a8245434614a3&units=metric`);
-const data = await res.json(); 
-weatherIcon.className = 'weather-icon owf';
-weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-temperature.textContent = `${data.main.temp}°C`;
-weatherDescription.textContent = data.weather[0].description;} 
-else {
-  const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${CityIn.value}&lang=ru&appid=c3c49ce84e899bde6e8a8245434614a3&units=metric`);
-  const data = await res.json(); 
-  weatherIcon.className = 'weather-icon owf';
-  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-  temperature.textContent = `${data.main.temp}°C`;
-  weatherDescription.textContent = data.weather[0].description;}
+async function getWeather() {
+  if (CityIn.value == false) {
+    CityIn.value = `Вологда`;
+    const res = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${CityIn.value}&lang=ru&appid=c3c49ce84e899bde6e8a8245434614a3&units=metric`
+    );
+    const data = await res.json();
+    weatherIcon.className = "weather-icon owf";
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${data.main.temp}°C`;
+    weatherDescription.textContent = data.weather[0].description;
+  } else {
+    const res = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${CityIn.value}&lang=ru&appid=c3c49ce84e899bde6e8a8245434614a3&units=metric`
+    );
+    const data = await res.json();
+    weatherIcon.className = "weather-icon owf";
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${data.main.temp}°C`;
+    weatherDescription.textContent = data.weather[0].description;
+  }
 }
-async function getQuotes() {  
-  let quotNoSplit = RandomNum()
-  const quotes = 'js/data.json';
+async function getQuotes() {
+  let quotNoSplit = RandomNum();
+  const quotes = "js/data.json";
   const res = await fetch(quotes);
-  const data = await res.json(); 
-  quote.textContent = data[quotNoSplit].text; 
+  const data = await res.json();
+  quote.textContent = data[quotNoSplit].text;
   author.textContent = data[quotNoSplit].author;
 }
-
 
 function showData() {
   const data = new Date();
@@ -101,7 +140,9 @@ function getTimeOfDay() {
   } else if (12 <= hours && hours < 16) {
     hour = "afternoon";
   }
-  if (hour!=hour) {changeBg()}
+  if (hour != hour) {
+    changeBg();
+  }
   greet.textContent = `Good ${hour}`;
   timeOfDay = hour;
 }
@@ -116,12 +157,11 @@ function getLocalStorage() {
   }
 }
 function RandomNum() {
-  return Math.floor(Math.random()*(21-1)+1)
+  return Math.floor(Math.random() * (21 - 1) + 1);
 }
 function changeBg() {
   let bgNum_R = String(bgNumGl);
-  let bgNum = bgNum_R.padStart(2,0);
+  let bgNum = bgNum_R.padStart(2, 0);
   ground.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg')`;
   getQuotes();
 }
-
