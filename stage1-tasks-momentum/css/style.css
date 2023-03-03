@@ -239,6 +239,10 @@ body {
   color: #fff;
   opacity: 0.6;
 }
+.name-def {
+  color: rgb(166, 214, 76);
+  opacity: 0.5;
+}
 
 .footer {
   display: flex;

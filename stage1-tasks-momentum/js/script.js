@@ -34,12 +34,18 @@ playBtn.addEventListener("click", playAudio);
 nextPlayBtn.addEventListener("click", nextPlay);
 prevPlayBtn.addEventListener("click", prevPlay);
 CityIn.addEventListener("change", getWeather);
+name_u.addEventListener("click", getNameDef);
 getWeather();
 showTime();
 changeBg();
 getQuotes();
 loadList();
-
+function getNameDef() {
+  if (name_u.value == "What is your name?") {
+    name_u.value = "";
+    name_u.classList.remove("name-def");
+  }
+}
 function nextPlay() {
   if (playNum < playList.length - 1) {
     playNum = playNum + 1;
@@ -171,12 +177,17 @@ function getTimeOfDay() {
 }
 
 function setLocalStorage() {
-  localStorage.setItem("name", name_u.value);
+  if (name_u.value != "What is your name?") {
+    localStorage.setItem("name", name_u.value);
+  }
 }
 
 function getLocalStorage() {
   if (localStorage.getItem("name")) {
     name_u.value = localStorage.getItem("name");
+  } else {
+    name_u.value = "What is your name?";
+    name_u.classList.add("name-def");
   }
 }
 function RandomNum() {
@@ -185,6 +196,11 @@ function RandomNum() {
 function changeBg() {
   let bgNum_R = String(bgNumGl);
   let bgNum = bgNum_R.padStart(2, 0);
-  ground.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg')`;
+
+  const img = new Image();
+  img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
+  img.onload = () => {
+    ground.style.backgroundImage = `url(${img.src})`;
+  };
   getQuotes();
 }
