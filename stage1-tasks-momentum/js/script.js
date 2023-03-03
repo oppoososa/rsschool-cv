@@ -20,6 +20,7 @@ const audio = new Audio();
 const playListElem = document.querySelector(".play-list");
 const li = document.createElement("li");
 
+
 let playNum = 0;
 let timeOfDay = "";
 let bgNumGl = RandomNum();
@@ -47,6 +48,7 @@ function getNameDef() {
   }
 }
 function nextPlay() {
+  document.getElementById(`${playNum}-item`).classList.remove("li-def");
   if (playNum < playList.length - 1) {
     playNum = playNum + 1;
     isPlay = false;
@@ -59,6 +61,7 @@ function nextPlay() {
 
 function prevPlay() {
   if (playNum > 0) {
+    document.getElementById(`${playNum}-item`).classList.remove("li-def");
     playNum = playNum - 1;
     isPlay = false;
     playAudio();
@@ -72,6 +75,7 @@ function prevPlay() {
 function loadList() {
   for (let i = 0; i < playList.length; i++) {
     const li = document.createElement("li");
+    li.setAttribute("id",`${i}-item`)
     li.className = "play-item";
     playListElem.append(li);
     li.textContent = playList[i].title;
@@ -86,7 +90,9 @@ function playAudio() {
     playBtn.classList.add("pause");
     audio.play();
     isPlay = true;
+    document.getElementById(`${playNum}-item`).classList.add("li-def");
   } else {
+    document.getElementById(`${playNum}-item`).classList.remove("li-def");
     playBtn.classList.remove("pause");
     playBtn.classList.add("play");
     audio.pause();

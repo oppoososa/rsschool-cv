@@ -240,10 +240,13 @@ body {
   opacity: 0.6;
 }
 .name-def {
-  color: rgb(166, 214, 76);
+  color: rgb(231, 231, 231);
   opacity: 0.5;
 }
-
+.li-def {
+  color: rgb(212, 102, 102);
+  opacity: 0.5;
+}
 .footer {
   display: flex;
   flex-direction: column;
