@@ -15,8 +15,11 @@ const author = document.querySelector(".author");
 const changeQuote = document.querySelector(".change-quote");
 const playBtn = document.querySelector(".play");
 const nextPlayBtn = document.querySelector(".play-next");
+const prevPlayBtn = document.querySelector(".play-prev");
 const audio = new Audio();
 const playListElem = document.querySelector(".play-list");
+const li = document.createElement("li");
+
 let playNum = 0;
 let timeOfDay = "";
 let bgNumGl = RandomNum();
@@ -29,6 +32,7 @@ slidePrev.addEventListener("click", getSlidePrev);
 changeQuote.addEventListener("click", getQuotes);
 playBtn.addEventListener("click", playAudio);
 nextPlayBtn.addEventListener("click", nextPlay);
+prevPlayBtn.addEventListener("click", prevPlay);
 CityIn.addEventListener("change", getWeather);
 getWeather();
 showTime();
@@ -37,10 +41,28 @@ getQuotes();
 loadList();
 
 function nextPlay() {
-  playNum = playNum + 1;
-  isPlay = false;
-  playAudio();
+  if (playNum < playList.length - 1) {
+    playNum = playNum + 1;
+    isPlay = false;
+    playAudio();
+  } else {
+    isPlay = true;
+    playAudio();
+  }
 }
+
+function prevPlay() {
+  if (playNum > 0) {
+    playNum = playNum - 1;
+    isPlay = false;
+    playAudio();
+    return playNum;
+  } else {
+    isPlay = true;
+    playAudio();
+  }
+}
+
 function loadList() {
   for (let i = 0; i < playList.length; i++) {
     const li = document.createElement("li");
@@ -49,6 +71,7 @@ function loadList() {
     li.textContent = playList[i].title;
   }
 }
+
 function playAudio() {
   audio.src = playList[playNum].src;
   audio.currentTime = 0;
@@ -157,7 +180,7 @@ function getLocalStorage() {
   }
 }
 function RandomNum() {
-  return Math.floor(Math.random() * (21 - 1) + 1);
+  return Math.floor(Math.random() * (20 - 1) + 1);
 }
 function changeBg() {
   let bgNum_R = String(bgNumGl);
