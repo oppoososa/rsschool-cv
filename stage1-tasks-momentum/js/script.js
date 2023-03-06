@@ -144,7 +144,7 @@ async function getWeather() {
     weatherIcon.className = "weather-icon owf";
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${data.main.temp}°C`;
-    weatherDescription.textContent = data.weather[0].description;
+    weatherDescription.textContent = " " + data.weather[0].description;
   }
 }
 async function getQuotes() {
