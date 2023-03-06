@@ -262,7 +262,10 @@ body {
   margin-bottom: 30px;
   background-image: url("../assets/svg/reload.svg");
 }
-
+.temperature {
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
 .quote {
   min-height: 32px;
   font-size: 27px;

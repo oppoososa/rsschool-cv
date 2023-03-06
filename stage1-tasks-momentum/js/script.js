@@ -20,7 +20,6 @@ const audio = new Audio();
 const playListElem = document.querySelector(".play-list");
 const li = document.createElement("li");
 
-
 let playNum = 0;
 let timeOfDay = "";
 let bgNumGl = RandomNum();
@@ -53,10 +52,13 @@ function nextPlay() {
     playNum = playNum + 1;
     isPlay = false;
     playAudio();
+    1;
   } else {
     isPlay = true;
     playAudio();
   }
+  document.getElementById(`${playNum}-item`).classList.add("li-def");
+  document.getElementById(`${playNum - 1}-item`).classList.remove("li-def");
 }
 
 function prevPlay() {
@@ -75,7 +77,7 @@ function prevPlay() {
 function loadList() {
   for (let i = 0; i < playList.length; i++) {
     const li = document.createElement("li");
-    li.setAttribute("id",`${i}-item`)
+    li.setAttribute("id", `${i}-item`);
     li.className = "play-item";
     playListElem.append(li);
     li.textContent = playList[i].title;
@@ -89,10 +91,9 @@ function playAudio() {
     playBtn.classList.remove("play");
     playBtn.classList.add("pause");
     audio.play();
-    isPlay = true;
     document.getElementById(`${playNum}-item`).classList.add("li-def");
+    isPlay = true;
   } else {
-    document.getElementById(`${playNum}-item`).classList.remove("li-def");
     playBtn.classList.remove("pause");
     playBtn.classList.add("play");
     audio.pause();
@@ -143,7 +144,7 @@ async function getWeather() {
     weatherIcon.className = "weather-icon owf";
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     temperature.textContent = `${data.main.temp}°C`;
-    weatherDescription.textContent = data.weather[0].description;
+    weatherDescription.textContent = " " + data.weather[0].description;
   }
 }
 async function getQuotes() {
