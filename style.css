@@ -65,6 +65,28 @@ li {
   .section {
     width: 100%;
   }
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 560px) {
+  .section {
+    width: 100%;
+  }
+  .nav-list {
+    max-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+  }
 }
 
 .nav-list {
@@ -72,6 +94,9 @@ li {
   justify-content: flex-end;
   align-items: center;
   list-style: none;
+  flex-wrap: wrap;
+  animation-name: example;
+  animation-duration: 4s;
 }
 .nav-link {
   transition: 0.4s;
@@ -103,4 +128,21 @@ a:active {
   text-align: center;
   display: block;
   margin: 0px;
+}
+
+@keyframes example {
+  
+    0% {
+      background-color: rgba(216, 216, 216, 0.822);
+    }
+    60% {
+      background-color: rgb(192, 192, 192);
+    }
+    80% {
+      background-color: rgba(241, 237, 237, 0.699);
+    }
+    100% {
+      background-color: rgba(216, 216, 216, 0.123);
+    }
+  }
 }
