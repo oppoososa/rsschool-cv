@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+.section-title {
+  background: linear-gradient(45deg, #eeeeee 30%, #d4ddd8dc 70%);
+  color: #474747;
+  padding: 20px 20px;
+  font-family: "Source Serif Pro", sans-serif;
+  font-size: 23px;
+  border-radius: 1%;
+}
+.section-title-top {
+  font-family: "Source Serif Pro", sans-serif;
+  font-size: 25px;
+  padding: 20px;
+  color: #ffffffc0;
+
+  background-color: rgb(109, 128, 118);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Source Serif Pro", sans-serif;
+  font-size: large;
+  color: rgb(128, 134, 133);
+  background-color: rgb(241, 241, 241);
+}
+
+p {
+  color: rgb(24, 20, 20);
+}
+li {
+  color: rgb(24, 20, 20);
+}
+.myfoto {
+  padding: 10px;
+  width: 190px;
+  border-radius: 50%;
+  opacity: 85%;
+}
+.section {
+  padding-left: 30px;
+  width: 50%;
+}
+.container {
+  background-color: rgba(241, 240, 240, 0.993);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.max {
+  width: 100%;
+}
+.footer {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-style: solid;
+  border-width: 2px 0px;
+  border-color: rgb(224, 223, 223);
+}
+@media (max-width: 768px) {
+  .section {
+    width: 100%;
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 560px) {
+  .section {
+    width: 100%;
+  }
+  .nav-list {
+    max-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+}
+
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  flex-wrap: wrap;
+  animation-name: example;
+  animation-duration: 4s;
+}
+.nav-link {
+  transition: 0.4s;
+  padding: 0 20px;
+  line-height: 50px;
+}
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+a:link {
+  text-decoration: none;
+  color: rgb(145, 64, 64);
+}
+a:visited {
+  text-decoration: none;
+  color: rgb(121, 141, 129);
+}
+a:hover {
+  text-decoration: none;
+  color: rgb(94, 0, 0);
+}
+a:active {
+  text-decoration: none;
+  color: rgb(50, 104, 95);
+}
+.link-footer {
+  font-size: 16px;
+  text-align: center;
+  display: block;
+  margin: 0px;
+}
+
+@keyframes example {
+  0% {
+    background-color: rgba(216, 216, 216, 0.822);
+  }
+  60% {
+    background-color: rgb(192, 192, 192);
+  }
+  80% {
+    background-color: rgba(241, 237, 237, 0.699);
+  }
+  100% {
+    background-color: rgba(216, 216, 216, 0.123);
+  }
+}
